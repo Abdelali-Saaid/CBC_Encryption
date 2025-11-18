@@ -1,37 +1,30 @@
-#include "../include/cbc.h" /*Noms des fichiers*/
-#include "../include/fileio.h"
-#include "../include/linkedlist.h"
-#include <stdio.h> // Cette bibliothèque fournit des fonctions pour les opérations d'entrée/sortie standard, comme printf et scanf.
-#include <stdlib.h> // Cette bibliothèque offre des fonctions pour la gestion de la mémoire dynamique, telles que malloc et free.
-#include <string.h> // Cette bibliothèque contient des fonctions pour manipuler des chaînes de caractères, telles que strcpy et strlen.
+#ifndef CBC_H
+#define CBC_H
 
-int main() {
-  // Lire les données d'un fichier dans une liste chaînée
-  struct Node *data = readFile("project/Makefiles/input.txt");
-  printf("Original Data: ");
-  displayList(data);
+#include <stddef.h>
+#include <stdint.h>
 
-  // Coder une liste chaînée par CBC encryption
-  struct Node *iv = createNode('0');
-  struct Node *current = data;
-  while (current != NULL) {
-    encryptBlock(&current, iv);
-    current = current->next;
-  }
-  printf("Encrypted Data: ");
-  displayList(data);
+#define BLOCK_SIZE 16
+#define KEY_SIZE 32
+#define IV_SIZE 16
 
-  // Ecrire les données codées dans un fichier
-  writeFile("project/Makefiles/encrypted.txt", data);
+// Secure CBC encryption/decryption functions
+int cbc_encrypt(const unsigned char *plaintext, size_t plaintext_len,
+                const unsigned char *key, const unsigned char *iv,
+                unsigned char *ciphertext);
 
-  // Vider la memoire
-  while (data != NULL) {
-    struct Node *temp = data;
-    data = data->next;
-    free(temp);
-  }
+int cbc_decrypt(const unsigned char *ciphertext, size_t ciphertext_len,
+                const unsigned char *key, const unsigned char *iv,
+                unsigned char *plaintext);
 
-  free(iv);
+// Secure random generation
+void generate_random_iv(unsigned char *iv, size_t iv_len);
+void generate_random_key(unsigned char *key, size_t key_len);
 
-  return 0;
-}
+// Authentication
+int compute_hmac(const unsigned char *data, size_t data_len,
+                 const unsigned char *key, unsigned char *hmac);
+int verify_hmac(const unsigned char *data, size_t data_len,
+                const unsigned char *key, const unsigned char *hmac);
+
+#endif
