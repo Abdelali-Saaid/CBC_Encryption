@@ -3,11 +3,13 @@ CBC_Encryption is a C library that provides functionalities to encrypt and decry
 - This library is designed for educational purposes and provides a straightforward interface for encrypting and decrypting text using symmetric key encryption.
 
 ## Features
-- Encrypt data using the AES algorithm in CBC mode.
-- Decrypt data that was encrypted using the AES algorithm in CBC mode.
-- Generate a random initialization vector (IV) for each encryption.
-- Handle linked list structures for efficient data manipulation.
-- Read data from and write data to files.
+
+- ✅ AES-256-CBC encryption/decryption
+- ✅ HMAC-SHA256 authentication
+- ✅ Secure random IV generation
+- ✅ Constant-time operations
+- ✅ Memory-safe file handling
+- ✅ Tamper detection
 
 ## Installation
 - To use the CBC_Encryption library, you need to compile it from source.
