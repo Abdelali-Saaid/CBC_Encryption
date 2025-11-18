@@ -8,7 +8,6 @@
 #define KEY_SIZE 32
 #define IV_SIZE 16
 
-// Secure CBC encryption/decryption functions
 int cbc_encrypt(const unsigned char *plaintext, size_t plaintext_len,
                 const unsigned char *key, const unsigned char *iv,
                 unsigned char *ciphertext);
@@ -17,7 +16,6 @@ int cbc_decrypt(const unsigned char *ciphertext, size_t ciphertext_len,
                 const unsigned char *key, const unsigned char *iv,
                 unsigned char *plaintext);
 
-// Secure random generation
 void generate_random_iv(unsigned char *iv, size_t iv_len);
 void generate_random_key(unsigned char *key, size_t key_len);
 
