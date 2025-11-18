@@ -17,7 +17,6 @@ int cbc_decrypt(const unsigned char *ciphertext, size_t ciphertext_len,
                 const unsigned char *key, const unsigned char *iv,
                 unsigned char *plaintext);
 
-// Secure random generation
 void generate_random_iv(unsigned char *iv, size_t iv_len);
 void generate_random_key(unsigned char *key, size_t key_len);
 
