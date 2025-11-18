@@ -51,12 +51,12 @@ Encrypts a block of data using the CBC mode.
 ## Acknowledgments
 - This library uses the OpenSSL library for cryptographic operations. 
 - For more information about OpenSSL, visit https://www.openssl.org.
-Acknowledgments
-Built with OpenSSL cryptographic library
 
-Implements NIST-approved algorithms
+- with OpenSSL cryptographic library
 
-Follows cryptographic best practices
+- Implements NIST-approved algorithms
+
+- Follows cryptographic best practices
 
 ## Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request.
