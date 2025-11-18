@@ -49,7 +49,11 @@ Encrypts a block of data using the CBC mode.
 
 
 ## Acknowledgments
+Built with OpenSSL cryptographic library
 
+Implements NIST-approved algorithms
+
+Follows cryptographic best practices
 
 
 ## Contributing
